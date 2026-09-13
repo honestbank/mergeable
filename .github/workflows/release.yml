@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Semantic Release
         id: semantic
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@16ca923e6ccbb50770c415a0ccd43709a8c5f7a4 # v4.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         if: ${{ steps.semantic.outputs.new_release_version }}
-      - uses: buildpacks/github-actions/setup-pack@v5.7.2
+      - uses: buildpacks/github-actions/setup-pack@957699bcc5502e0999f592773a666ae17df69afb # v5.7.2
         if: ${{ steps.semantic.outputs.new_release_version }}
       - name: Build and publish docker image
         if: ${{ steps.semantic.outputs.new_release_version }}
